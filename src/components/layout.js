@@ -5,10 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Header from './header'
-/*
+
 import { MuiThemeProvider} from '@material-ui/core/styles';
 import theme from '../utils/theme';
-
+/*
 require("prismjs/themes/prism-hopscotch.css")
 */
 const styles = theme => ({
@@ -49,8 +49,10 @@ export default ({ children }) => (
     
     render = { data => (
       <div>
-        <Header metaData={data.site.siteMetadata}/>
-        <MyGrid>{children}</MyGrid>
+        <MuiThemeProvider theme={theme}>
+          <Header metaData={data.site.siteMetadata}/>
+          <MyGrid>{children}</MyGrid>
+        </MuiThemeProvider>
       </div>
     )}
   />
