@@ -1,6 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import primary from '@material-ui/core/colors/blueGrey';
-import secondary from '@material-ui/core/colors/deepOrange';
+import deepOrange from '@material-ui/core/colors/deepOrange';
 
 export default createMuiTheme({
   typography: {
@@ -16,7 +16,7 @@ export default createMuiTheme({
 
   palette: {
     primary: primary,
-    secondary: secondary,
+    secondary: deepOrange,
     background: {
       paper: "#fff",
       default: "#B0BEC5"

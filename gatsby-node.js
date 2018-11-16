@@ -21,7 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
               fields {
@@ -29,6 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 tags
+                title
               }
             }
           }
@@ -37,11 +38,20 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       const posts = result.data.allMarkdownRemark.edges
 
-      posts.forEach(({ node }) => {
+      posts.forEach(({ node }, index) => {
+        const prevLink = index === 0 ? 'false' : posts[index - 1]['node'].fields.slug
+        const nextLink = index === posts.length - 1 ? 'false' : posts[index + 1]['node'].fields.slug
+        const prev = index === 0 ? 'false' : posts[index - 1]['node'].frontmatter.title.replace(/^./, str => str.toUpperCase())
+        const next = index === posts.length - 1 ? 'false' : posts[index + 1]['node'].frontmatter.title.replace(/^./, str => str.toUpperCase())
+
         createPage({
           path: node.fields.slug,
           component: path.resolve(`./src/templates/blog-post.js`),
           context: {
+            prevLink: prevLink,
+            nextLink: nextLink,
+            prev, prev,
+            next, next,
             slug: node.fields.slug,
           },
         })

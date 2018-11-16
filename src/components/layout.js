@@ -8,9 +8,9 @@ import Header from './header'
 
 import { MuiThemeProvider} from '@material-ui/core/styles';
 import theme from '../utils/theme';
-/*
+
 require("prismjs/themes/prism-hopscotch.css")
-*/
+
 const styles = theme => ({
   paper: {
     margin: '0 auto',

@@ -1,10 +1,18 @@
-//import gray from 'gray-percentage'
-import Typography from "typography"
+import Typography from 'typography'
+import _ from 'lodash'
+import siteTheme from 'typography-theme-kirkham'
 
-import kirkhamTheme from 'typography-theme-kirkham'
+let fontTheme = _.clone(siteTheme.googleFonts)
+fontTheme.push({ name: 'Open Sans', styles: [ '700' ]})
 
-const typography = new Typography(kirkhamTheme)
+siteTheme.googleFonts = fontTheme
+siteTheme.headerFontFamily = ['Open Sans', 'serif']
+
+const typography = new Typography(siteTheme)
 /*
+siteTheme.headerFontFamily = ['Fira Sans']
+siteTheme.bodyFontFamily = ['Fira Sans', 'sans-serif']
+
 const typography = new Typography({
   title: 'Github',
   baseFontSize: '18px',
