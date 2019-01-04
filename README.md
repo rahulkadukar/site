@@ -1,3 +1,6 @@
+# My Website
+This is the source code for the website, generated using Gatsby
+
 # gatsby-starter-hello-world
 Starter with the bare essentials needed for a [Gatsby](https://www.gatsbyjs.org/) site.
 
