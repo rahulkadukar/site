@@ -6,7 +6,7 @@ let fontTheme = _.clone(siteTheme.googleFonts)
 fontTheme.push({ name: 'Open Sans', styles: [ '700' ]})
 
 siteTheme.googleFonts = fontTheme
-siteTheme.headerFontFamily = ['Open Sans', 'serif']
+siteTheme.headerFontFamily = ['Fira Sans', 'serif']
 
 const typography = new Typography(siteTheme)
 /*
